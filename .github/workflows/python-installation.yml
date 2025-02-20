@@ -7,10 +7,6 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        exclude:
-          os: macos-14
-        py-version:
-          - "3.12"
         os:
           - ubuntu-latest
           - macos-14
@@ -19,6 +15,9 @@ jobs:
           - "3.10"
           - "3.11"
           - "3.12"
+      exclude:
+        - os: macos-14
+          py-version: "3.12"
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
